@@ -7,6 +7,8 @@ import java.util.Objects;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.rodrigoolive.workshopmongo.dto.AuthorDTO;
+
 // Anotação que indica que esta classe é um documento MongoDB
 @Document
 public class Post implements Serializable {
@@ -23,14 +25,14 @@ public class Post implements Serializable {
     private String body;
     
     // Referência ao autor do post
-    private User author;
+    private AuthorDTO author;
 
     // Construtor padrão sem argumentos
     public Post() {
     }
 
     // Construtor com argumentos para inicializar todos os campos
-    public Post(String id, Date date, String title, String body, User author) {
+    public Post(String id, Date date, String title, String body, AuthorDTO author) {
         super();
         this.id = id;
         this.date = date;
@@ -80,12 +82,12 @@ public class Post implements Serializable {
     }
 
     // Getter para o campo author
-    public User getAuthor() {
+    public AuthorDTO getAuthor() {
         return author;
     }
 
     // Setter para o campo author
-    public void setAuthor(User author) {
+    public void setAuthor(AuthorDTO author) {
         this.author = author;
     }
 
