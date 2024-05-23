@@ -1,9 +1,10 @@
 package com.rodrigoolive.workshopmongo.repository;
 
+import com.rodrigoolive.workshopmongo.domain.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
-import com.rodrigoolive.workshopmongo.domain.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
+
 }
