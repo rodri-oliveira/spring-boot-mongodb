@@ -1,13 +1,16 @@
 package com.rodrigoolive.workshopmongo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.rodrigoolive.workshopmongo.dto.AuthorDTO;
+import com.rodrigoolive.workshopmongo.dto.CommentDTO;
 
 // Anotação que indica que esta classe é um documento MongoDB
 @Document
@@ -26,6 +29,8 @@ public class Post implements Serializable {
     
     // Referência ao autor do post
     private AuthorDTO author;
+    
+    private List<CommentDTO> comments = new ArrayList<>();
 
     // Construtor padrão sem argumentos
     public Post() {
@@ -90,6 +95,14 @@ public class Post implements Serializable {
     public void setAuthor(AuthorDTO author) {
         this.author = author;
     }
+    
+	public List<CommentDTO> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<CommentDTO> comments) {
+		this.comments = comments;
+	}
 
     // Implementação do método hashCode com base no campo id
     @Override
