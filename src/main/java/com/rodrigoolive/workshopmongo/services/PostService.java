@@ -1,5 +1,6 @@
 package com.rodrigoolive.workshopmongo.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +21,7 @@ public class PostService {
 		return user.orElseThrow(() -> new ObjectNotFoundExcption("Object not found with id: " + id));
 	}
 
+	public List<Post> findByTtile(String text){
+		return repo.findByTitleContainingIgnoreCase(text);
+	}
 }	
